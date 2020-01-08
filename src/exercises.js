@@ -2,12 +2,25 @@ function commonEnd(a, b) {
   if (!a || a.length === 0 || !b || b.length === 0) {
     return false;
   }
+  if (a.length < 1 || b.length < 1) {
+    return false;
+  }
 
-  // write your code here
+   if (a[0] === b[0] || (a.pop() === b.pop())) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function endsMeet(values, n) {
-  // write your code here
+  if (!n || n.length === 0) {
+    return false;
+  } else if (values.length <= n) {
+    return false;
+  } else if (n < 0) {
+    return false;
+  }
 }
 
 function difference(numbers) {
