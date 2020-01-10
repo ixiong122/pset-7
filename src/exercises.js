@@ -14,33 +14,73 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
+  var values = [];
+  var n;
   if (!n || n.length === 0) {
-    return false;
+    return [];
   } else if (values.length <= n) {
-    return false;
-  } else if (n < 0) {
-    return false;
+    return [];
+  } else if (n % 0 !== 0 && n < 0) {
+    return [];
+  }
+  if (n || n.length !== 0 || values.length >= n || (n % 0 !== 0 && n > 0)) {
+
+    return values.slice(0, n);
+    return values.slice(-1).pop()
   }
 }
 
 function difference(numbers) {
+  var numbers = [];
+  if (!numbers || numbers.length === 0) {
+    return undefined;
+  } else if (numbers.length <= 1) {
+    return undefined;
+  } else if (isNaN(numbers)) {
+    return undefined;
+  } else {
+    if (numbers.length === 1) {
+      var difference2 = numbers[0] - 1;
+      return difference;
+    } else {
+    var smallestValue = numbers.min;
+    var largestValue =  numbers.max;
+    var difference = largestValue - smallestValue;
+    return difference;
+  }
+}
   // write your code here
 }
 
 function max(number) {
-  // write your code here
+  if (!numbers || numbers.length === 0) {
+    return undefined;
+} else if (numbers.length < 3 && numbers.length % 2 !== 1) {
+  return undefined;
+} else if (isNaN(numbers)) {
+  return undefined;
 }
-
+}
 function middle(values) {
-  // write your code here
+  if (!values || values.length === 0) {
+    return undefined;
+} else if (values.length < 3 && values.length % 2 !== 1) {
+  return undefined;
 }
-
+}
 function increasing(numbers) {
-  // write your code here
+  if (!numbers || numbers.length === 0) {
+    return false;
+} else if (numbers.length < 3) {
+  return false;
+} else if (isNaN(numbers)) {
+  return false;
+} else if (numbers % 1 !== 0) {
+  return false;
 }
-
+}
 function everywhere(values, x) {
-  // write your code here
+
 }
 
 function consecutive(numbers) {
