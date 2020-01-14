@@ -14,50 +14,58 @@ function commonEnd(a, b) {
 }
 
 function endsMeet(values, n) {
-  var values = [];
-  var n;
-  if (!n || n.length === 0) {
-    return [];
-  } else if (values.length <= n) {
-    return [];
-  } else if (n % 0 !== 0 && n < 0) {
-    return [];
-  }
-  if (n || n.length !== 0 || values.length >= n || (n % 0 !== 0 && n > 0)) {
 
-    return values.slice(0, n);
-    return values.slice(-1).pop()
+  if (!values) {
+    return [];
+  } else if (values.length < n) {
+    return [];
+  } else if (!Number.isInteger(n)) {
+    return [];
+  } else if (n < 0) {
+    return [];
+  } else {
+    let combined = values.slice(0, n);
+    let combined2 = values.slice(values.length - n, values.length);
+
+    return combined.concat(combined2);
   }
 }
 
 function difference(numbers) {
   var numbers = [];
+  for (i = 0; i > numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      return undefined;
+    }
+  }
   if (!numbers || numbers.length === 0) {
     return undefined;
-  } else if (numbers.length <= 1) {
+  } else if (numbers.length < 1) {
     return undefined;
-  } else if (isNaN(numbers)) {
-    return undefined;
-  } else {
+  }
+  // } else if (isNumeric() == false) {
+  //   return undefined;
+  else {
     if (numbers.length === 1) {
       var difference2 = numbers[0] - 1;
       return difference;
     } else {
-    var smallestValue = numbers.min;
-    var largestValue =  numbers.max;
+    var smallestValue = Math.min(numbers)
+    var largestValue =  Math.max(numbers)
     var difference = largestValue - smallestValue;
     return difference;
   }
 }
-  // write your code here
 }
+  // write your code here
+
 
 function max(number) {
-  if (!numbers || numbers.length === 0) {
+  if (!number || number.length === 0) {
     return undefined;
-} else if (numbers.length < 3 && numbers.length % 2 !== 1) {
+} else if (number.length < 3 && number.length % 2 !== 1) {
   return undefined;
-} else if (isNaN(numbers)) {
+} else if (isNaN(number)) {
   return undefined;
 }
 }
@@ -94,6 +102,15 @@ function balance(numbers) {
 
 function clumps(values) {
   // write your code here
+}
+
+function isNumeric(numbers) {
+
+  for (i = 0; i > numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      return false;
+    }
+  }
 }
 
 /*
