@@ -79,7 +79,7 @@ function middle(values) {
   }
 }
 function increasing(numbers) {
-  if (numbers == undefined || numbers.some(isNaN) || Number.isInteger(numbers) || numbers.length < 3) {
+  if (!numbers|| numbers.some(isNaN) || Number.isInteger(numbers) || numbers.length < 3) {
      return false;
    } else {
 	for (let i = 1; i < numbers.length; i++) {
@@ -96,17 +96,81 @@ function increasing(numbers) {
 return false;
 }
 function everywhere(values, x) {
+  let result = false;
+  if (!values || values.length < 1 || !x) {
+   return false;
+   }
 
+   for (let i = 0; i < values.length; i++) {
+       if (values[i] !== x) {
+           if (values[i - 1] === x || values[i + 1] === x) {
+             result = false;
+           } else {
+               return false;
+           }
+       }
+   }
+   return true;
 }
 
 function consecutive(numbers) {
-  // write your code here
-}
 
+  if (!numbers || numbers.some(isNaN) || Number.isInteger(numbers) || numbers.length < 3) {
+    return false;
+  }
+  let result = false;
+
+for (let i = 0; i < numbers.length - 2;i++) {
+  if (numbers[i] % 2 === 0 && numbers[i + 1] % 2 === 0 && numbers[i + 2] % 2 === 0) {
+    result = true;
+  } else if (numbers[i] % 2 === 1 && numbers[i + 1] % 2 === 1 && numbers[i + 2] % 2 === 1) {
+    result = true;
+  }
+
+}
+return result;
+
+}
 function balance(numbers) {
-  // write your code here
+
+let halfSum;
+let sumB = 0;
+let result;
+let sumA = 0;
+
+
+
+if (!numbers || numbers.some(isNaN) || Number.isInteger(numbers) || numbers.length < 2) {
+  return false;
+}
+  for (let i = 0; i < numbers.length; i++){
+        sumA = sumA + numbers[i];
+      }
+    sumHalf = sumA / 2;
+    if(sumA % 2 === 1) {
+        result = false;
+        return result;
+    }
+    for (let x = 0; x < numbers.length - 1; x++) {
+
+        sumB = sumB + numbers[x];
+
+        if (sumB === sumHalf) {
+          result = true;
+          return result;
+        }
+    }
+
+    if (result === true) {
+        return true;
+    } else {
+        return false;
+    }
   console.log("test");
 }
+
+
+
 
 function clumps(values) {
   // write your code here
