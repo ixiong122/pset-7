@@ -32,41 +32,41 @@ function endsMeet(values, n) {
 }
 
 function difference(numbers) {
-  var numbers = [];
-  for (i = 0; i > numbers.length; i++) {
-    if (isNaN(numbers[i])) {
-      return undefined;
-    }
-  }
-  if (!numbers || numbers.length === 0) {
+  var min = Number(Math.min.apply(null, numbers));
+  var max = Number(Math.max.apply(null, numbers));
+
+  if (!numbers || numbers.length < 1 || numbers.some(isNaN)) {
     return undefined;
-  } else if (numbers.length < 1) {
-    return undefined;
-  }
-  // } else if (isNumeric() == false) {
-  //   return undefined;
-  else {
-    if (numbers.length === 1) {
-      var difference2 = numbers[0] - 1;
-      return difference;
-    } else {
-    var smallestValue = Math.min(numbers)
-    var largestValue =  Math.max(numbers)
-    var difference = largestValue - smallestValue;
+  } else {
+    let difference = max - min;
     return difference;
   }
-}
-}
+  }
+
   // write your code here
 
 
 function max(number) {
-  if (!number || number.length === 0) {
+  if (!number || number.length < 3 || number.some(isNaN) || number.length % 2 === 0) {
     return undefined;
-} else if (number.length < 3 && number.length % 2 !== 1) {
-  return undefined;
-} else if (isNaN(number)) {
-  return undefined;
+} else {
+  let newArray = [];
+
+          newArray.push(number[0]);
+
+          let half = Math.floor(number.length/2);
+
+          newArray.push(number[half]);
+
+          let end = number[number.length - 1];
+
+          newArray.push(end);
+
+          let max = Number(Math.max.apply(null, newArray));
+
+
+
+          return max;
 }
 }
 function middle(values) {
@@ -104,14 +104,7 @@ function clumps(values) {
   // write your code here
 }
 
-function isNumeric(numbers) {
 
-  for (i = 0; i > numbers.length; i++) {
-    if (isNaN(numbers[i])) {
-      return false;
-    }
-  }
-}
 
 /*
  * Exports all functions for use in external grader.js file. Do not modify.
