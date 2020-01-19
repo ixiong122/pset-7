@@ -46,35 +46,40 @@ function difference(numbers) {
   // write your code here
 
 
-function max(number) {
-  if (!number || number.length < 3 || number.some(isNaN) || number.length % 2 === 0) {
-    return undefined;
-} else {
-  let newArray = [];
+  function max(numbers) {
 
-          newArray.push(number[0]);
+    if (!numbers || numbers.length % 2 === 0 || numbers.length < 3 || !isNumeric(numbers)) {
 
-          let half = Math.floor(number.length/2);
+      return undefined;
 
-          newArray.push(number[half]);
+    } else {
+      let newNumberArray = [];
+      let firstNumber = numbers[0];
+      let middleNumber = numbers[Math.floor(numbers.length / 2)];
+      let lastNumber = numbers[numbers.length - 1];
 
-          let end = number[number.length - 1];
+      newNumberArray.push(firstNumber, middleNumber, lastNumber);
 
-          newArray.push(end);
+      let maximum = Number(Math.max.apply(null, newNumberArray));
 
-          let max = Number(Math.max.apply(null, newArray));
+      return maximum;
+
+    }
+
+  }
 
 
-
-          return max;
-}
-}
 function middle(values) {
-  if (!values || values.length === 0) {
-    return undefined;
-} else if (values.length < 3 && values.length % 2 !== 1) {
-  return undefined;
-}
+  if (!values || values.length < 3 || values.length % 2 === 0) {
+    return [];
+  } else {
+    let newArray = [];
+    let middle = Math.floor(values.length / 2);
+
+    newArray.push(values[middle - 1], values[middle], values[middle + 1]);
+
+    return newArray;
+  }
 }
 function increasing(numbers) {
   if (!numbers || numbers.length === 0) {
@@ -105,6 +110,15 @@ function clumps(values) {
 }
 
 
+
+  function isNumeric(numbers) {
+    for (let i = 0; i < numbers.length; i++) {
+      if (typeof numbers[i] !== "number") {
+         return false;
+      }
+    }
+    return true;
+  }
 
 /*
  * Exports all functions for use in external grader.js file. Do not modify.
