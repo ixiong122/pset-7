@@ -15,13 +15,7 @@ function commonEnd(a, b) {
 
 function endsMeet(values, n) {
 
-	if (!values) {
-		return [];
-	} else if (values.length < n) {
-		return [];
-	} else if (!Number.isInteger(n)) {
-		return [];
-	} else if (n < 0) {
+	if (!values || values.length < n || !Number.isInteger(n) || n < 0) {
 		return [];
 	} else {
 		let combined = values.slice(0, n);
@@ -141,7 +135,6 @@ function balance(numbers) {
 	let result;
 	let sumA = 0;
 
-
 	if (!numbers || numbers.some(isNaN) || Number.isInteger(numbers) || numbers.length < 2) {
 		return false;
 	}
@@ -182,7 +175,7 @@ function clumps(values) {
 		let val = values[i];
 		i++;
 		let length = 1;
-		while (i < values.length && values[i] == val) {
+		while (i < values.length && values[i] === val) {
 			i++;
 			length++;
 		}
